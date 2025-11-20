@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
@@ -13,15 +12,17 @@ import TrackStatus from "./pages/TrackStatus";
 import Appointment from "./pages/Appointment";
 import Login from "./pages/Login";
 import Register from "./pages/Register";  
+import ApplicantDashboard from "./pages/ApplicantDashboard";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+    
 
       <div style={{ minHeight: "80vh" }}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<ApplicantDashboard />} />
           <Route path="/apply" element={<ApplyID />} />
           <Route path="/upload" element={<UploadDocs />} />
           <Route path="/track" element={<TrackStatus />} />

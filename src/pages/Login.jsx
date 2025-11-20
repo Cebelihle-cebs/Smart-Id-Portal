@@ -9,17 +9,23 @@ const LoginPage = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    // TODO: Add API call to authenticate user
+
+    // TODO: Replace this with actual API call
     console.log("Email:", email, "Password:", password);
-    alert("Sign In clicked!");
+
+    // Simulate successful login
+    alert("Sign In successful!");
+    navigate("/dashboard"); // Redirect to ApplicantDashboard
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
-        <div className="logo">Login</div>
-       
-        <p>Welcome<br />Sign in to your account or create a new one</p>
+        <p>
+          Welcome to Smart ID Portal
+          <br />
+          Sign in to your account or create a new one
+        </p>
 
         <form onSubmit={handleSignIn}>
           <label>Email</label>
