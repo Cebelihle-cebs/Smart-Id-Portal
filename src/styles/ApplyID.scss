@@ -1,5 +1,5 @@
-.appointment-wrap {
-  max-width: 600px;
+.apply-form-wrap {
+  max-width: 650px;
   margin: 50px auto;
   padding: 30px;
   background: #ffffff;
@@ -8,12 +8,12 @@
   font-family: 'Poppins', sans-serif;
 
   h2 {
-    text-align: center;
-    color: #1a237e;
     margin-bottom: 20px;
+    color: #1a237e;
+    text-align: center;
   }
 
-  .appointment-form {
+  .apply-form {
     display: flex;
     flex-direction: column;
 
@@ -28,8 +28,8 @@
         color: #0d47a1;
       }
 
-      select,
-      input {
+      input,
+      select {
         padding: 10px 12px;
         border: 1px solid #ced4da;
         border-radius: 8px;
@@ -42,10 +42,14 @@
           box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
         }
       }
+
+      input[type="file"] {
+        padding: 5px;
+      }
     }
 
     .submit-btn {
-      margin-top: 20px;
+      margin-top: 15px;
       padding: 12px 20px;
       background-color: #1976d2;
       color: #fff;

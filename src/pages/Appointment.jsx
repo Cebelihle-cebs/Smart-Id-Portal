@@ -1,56 +1,57 @@
-import React from "react";
-import { FaCalendarAlt, FaMapMarkerAlt, FaClock, FaCheckCircle } from "react-icons/fa";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Appointment.scss";
 
-const AppointmentPage = () => {
-  const appointment = {
-    date: "2024-11-30",
-    time: "10:30 AM",
-    location: "Home Affairs Durban Central",
-    status: "Confirmed",
+const Appointment = () => {
+  const navigate = useNavigate();
+  const [appointmentData, setAppointmentData] = useState({
+    branch: "",
+    date: "",
+    time: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAppointmentData({ ...appointmentData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // TODO: Submit appointment via API
+    console.log("Appointment booked:", appointmentData);
+
+    // Redirect to Upload Documents page after appointment
+    navigate("/upload");
   };
 
   return (
-    <div className="appointment-container">
-      <h2 className="title">Your Biometrics Appointment</h2>
-
-      <div className="appointment-card">
-        <div className="row">
-          <FaCalendarAlt className="icon" />
-          <div>
-            <h3>Date</h3>
-            <p>{appointment.date}</p>
-          </div>
+    <div className="appointment-wrap">
+      <h2>Schedule Your Biometrics Appointment</h2>
+      <form className="appointment-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Choose Branch / Location</label>
+          <select name="branch" value={appointmentData.branch} onChange={handleChange} required>
+            <option value="">Select Branch</option>
+            <option value="Main Office">Home Affairs Main Office</option>
+            <option value="Branch 1">Branch 1</option>
+            <option value="Branch 2">Branch 2</option>
+          </select>
         </div>
 
-        <div className="row">
-          <FaClock className="icon" />
-          <div>
-            <h3>Time</h3>
-            <p>{appointment.time}</p>
-          </div>
+        <div className="form-group">
+          <label>Select Date</label>
+          <input type="date" name="date" value={appointmentData.date} onChange={handleChange} required />
         </div>
 
-        <div className="row">
-          <FaMapMarkerAlt className="icon" />
-          <div>
-            <h3>Location</h3>
-            <p>{appointment.location}</p>
-          </div>
+        <div className="form-group">
+          <label>Select Time</label>
+          <input type="time" name="time" value={appointmentData.time} onChange={handleChange} required />
         </div>
 
-        <div className="status-section">
-          <FaCheckCircle className="status-icon" />
-          <span className="status-text">{appointment.status}</span>
-        </div>
-
-        <div className="buttons">
-          <button className="reschedule-btn">Reschedule</button>
-          <button className="cancel-btn">Cancel</button>
-        </div>
-      </div>
+        <button type="submit" className="submit-btn">Confirm Appointment</button>
+      </form>
     </div>
   );
 };
 
-export default AppointmentPage;
+export default Appointment;
