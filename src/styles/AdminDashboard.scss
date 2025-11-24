@@ -1,0 +1,108 @@
+.admin-dashboard {
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f4f9ff;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+    color: #1a237e;
+  }
+
+  .subtitle {
+    color: #6c757d;
+    margin-bottom: 2rem;
+  }
+
+  .stats-cards {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+
+    .card {
+      flex: 1;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      text-align: center;
+
+      h2 {
+        font-size: 2rem;
+        color: #1976d2;
+      }
+
+      p {
+        font-size: 1rem;
+        margin: 0.2rem 0;
+      }
+
+      span {
+        font-size: 0.85rem;
+        color: #6c757d;
+      }
+    }
+  }
+
+  .applications-section {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #1a237e;
+    }
+
+    .export-btn {
+      background-color: #1976d2;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      float: right;
+      margin-bottom: 1rem;
+
+      &:hover {
+        background-color: #1565c0;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        text-align: left;
+        padding: 0.75rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      th {
+        background-color: #e3f2fd;
+        color: #1a237e;
+      }
+
+      .email {
+        font-size: 0.85rem;
+        color: #6c757d;
+      }
+
+      .action-btn {
+        background-color: #1976d2;
+        color: #fff;
+        border: none;
+        padding: 0.3rem 0.6rem;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #1565c0;
+        }
+      }
+    }
+  }
+}

@@ -13,7 +13,8 @@ import Appointment from "./pages/Appointment";
 import Login from "./pages/Login";
 import Register from "./pages/Register";  
 import ApplicantDashboard from "./pages/ApplicantDashboard";
-
+import AdminDashboard from "./pages/AdminDashboard";  
+import AdminVerificationDocs from "./pages/AdminVerificationDocs";
 function App() {
   return (
     <Router>
@@ -22,6 +23,8 @@ function App() {
       <div style={{ minHeight: "80vh" }}>
         <Routes>
           <Route path="/" element={<Home />} />
+      <Route path="/verify" element={<AdminVerificationDocs />} />
+             <Route path="/admindashboard" element={<AdminDashboard />} />
           <Route path="/dashboard" element={<ApplicantDashboard />} />
           <Route path="/apply" element={<ApplyID />} />
           <Route path="/upload" element={<UploadDocs />} />

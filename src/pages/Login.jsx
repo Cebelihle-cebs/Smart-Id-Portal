@@ -2,20 +2,45 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../styles/Login.scss";
 
-const LoginPage = () => {
+const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // Mock users data
+  const mockUsers = [
+    {
+      email: "admin@gmail.com",
+      password: "admin123",
+      role: "admin",
+    },
+    {
+      email: "user@gmail.com",
+      password: "user123",
+      role: "applicant",
+    },
+  ];
+
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    // TODO: Replace this with actual API call
-    console.log("Email:", email, "Password:", password);
+    // Find user in mock data
+    const user = mockUsers.find(
+      (u) => u.email === email && u.password === password
+    );
 
-    // Simulate successful login
-    alert("Sign In successful!");
-    navigate("/dashboard"); // Redirect to ApplicantDashboard
+    if (user) {
+      alert("Sign In successful!");
+
+      // Redirect based on role
+      if (user.role === "admin") {
+        navigate("/admindashboard"); // Admin dashboard route
+      } else {
+        navigate("/dashboard"); // Applicant dashboard route
+      }
+    } else {
+      alert("Invalid email or password");
+    }
   };
 
   return (
@@ -60,4 +85,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
